@@ -12,11 +12,11 @@ class SetttingsTest {
     fun testSetting() {
         val userName:String = "jack"
         val passWord:String = "123456"
-        Settings.userName = userName
-        Settings.passWorld = passWord
+        AppConfig.userName = userName
+        AppConfig.passWorld = passWord
 
-        Assert.assertEquals(Settings.userName, userName)
-        Assert.assertEquals(Settings.passWorld, passWord)
+        Assert.assertEquals(AppConfig.userName, userName)
+        Assert.assertEquals(AppConfig.passWorld, passWord)
     }
 
 }

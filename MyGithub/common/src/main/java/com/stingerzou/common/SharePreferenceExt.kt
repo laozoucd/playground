@@ -4,8 +4,6 @@ import android.content.Context
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
-
-
 class Preference<T>(val context:Context,
                     val default:T,
                     val prefName:String = "default") : ReadWriteProperty<Any?, T> {
@@ -13,13 +11,13 @@ class Preference<T>(val context:Context,
     //Preference 分类
     companion object {
         const val DEFAULT:String = "default"
-        const val SETTINGS:String = "settings"
+        const val CONFIG:String = "config"
 
         //在进入软件时，加载 xml 文件
         //阅读源码后发现 这是新开线程操作，基本不影响软件打开速度
-        fun configure(context: Context) {
+        fun init(context: Context) {
             context.getSharedPreferences(DEFAULT, Context.MODE_PRIVATE)
-            context.getSharedPreferences(SETTINGS, Context.MODE_PRIVATE)
+            context.getSharedPreferences(CONFIG, Context.MODE_PRIVATE)
         }
     }
 
@@ -57,7 +55,7 @@ class Preference<T>(val context:Context,
             }
         }.apply()
     }
-
-
-
 }
+
+inline fun <reified R, T> R.configProxy(default: T) = Preference(AppContext, default,Preference.CONFIG)
+inline fun <reified R, T> R.defaultProxy(default: T) = Preference(AppContext, default,Preference.DEFAULT)
