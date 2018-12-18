@@ -1,10 +1,15 @@
 package com.stingerzou.mygithub
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import com.stingerzou.mygithub.net.UserApi
+import dagger.android.support.DaggerAppCompatActivity
+import javax.inject.Inject
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : DaggerAppCompatActivity() {
+
+    @Inject
+    lateinit var mUserApi:UserApi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

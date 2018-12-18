@@ -3,6 +3,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+
+kotlin {
+    androidExtensions {
+        experimental = true
+    }
+}
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -24,6 +31,8 @@ android {
         enabled true
     }
 
+
+
 }
 
 dependencies {
@@ -36,6 +45,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation project(':common')
 
+    //与 gradle 插件版本匹配
     kapt 'com.android.databinding:compiler:3.1.4'
 
     implementation 'io.reactivex.rxjava2:rxkotlin:2.2.0'
@@ -45,11 +55,13 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava2:2.5.0"
     implementation "com.squareup.retrofit2:converter-gson:2.5.0"
 
-    implementation 'com.google.dagger:dagger:2.16'
-    kapt 'com.google.dagger:dagger-compiler:2.16'
+    implementation 'com.google.dagger:dagger:2.19'
+    kapt 'com.google.dagger:dagger-compiler:2.19'
 
-    implementation 'com.google.dagger:dagger-android:2.16'
-    implementation 'com.google.dagger:dagger-android-support:2.16'
-    kapt 'com.google.dagger:dagger-android-processor:2.16'
+    implementation 'com.google.dagger:dagger-android:2.19'
+    implementation 'com.google.dagger:dagger-android-support:2.19'
+    kapt 'com.google.dagger:dagger-android-processor:2.19'
+
+
 
 }

@@ -56,6 +56,3 @@ class Preference<T>(val context:Context,
         }.apply()
     }
 }
-
-inline fun <reified R, T> R.config(default: T) = Preference(AppContext, default,Preference.CONFIG)
-inline fun <reified R, T> R.default(default: T) = Preference(AppContext, default,Preference.DEFAULT)

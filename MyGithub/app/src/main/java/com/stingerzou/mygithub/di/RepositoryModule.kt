@@ -1,7 +1,9 @@
 package com.stingerzou.mygithub.di
 
-import com.stingerzou.common.AppContext
+
 import com.stingerzou.common.ensureDir
+import com.stingerzou.mygithub.AppContext
+import com.stingerzou.mygithub.net.UserApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
@@ -10,11 +12,11 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
-import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+//暂时放在一起，后面多了通过 include 来分开
 @Module
-abstract class RepositoryModule {
+ class RepositoryModule {
 
     private val BASE_URL = "https://api.github.com"
 
@@ -35,4 +37,10 @@ abstract class RepositoryModule {
                 .baseUrl(BASE_URL)
                 .build()
     }
+
+    @Provides
+    fun provideUserApi(retrofit:Retrofit):UserApi {
+        return retrofit.create(UserApi::class.java)
+    }
+
 }
