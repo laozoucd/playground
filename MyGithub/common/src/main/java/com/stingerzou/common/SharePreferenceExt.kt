@@ -57,5 +57,5 @@ class Preference<T>(val context:Context,
     }
 }
 
-inline fun <reified R, T> R.configProxy(default: T) = Preference(AppContext, default,Preference.CONFIG)
-inline fun <reified R, T> R.defaultProxy(default: T) = Preference(AppContext, default,Preference.DEFAULT)
+inline fun <reified R, T> R.config(default: T) = Preference(AppContext, default,Preference.CONFIG)
+inline fun <reified R, T> R.default(default: T) = Preference(AppContext, default,Preference.DEFAULT)
