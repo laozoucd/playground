@@ -1,7 +1,7 @@
-package com.stingerzou.mygithub.di
+package com.stingerzou.mygithub.app.di
 
 import android.app.Application
-import com.stingerzou.mygithub.App
+import com.stingerzou.mygithub.app.App
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -21,7 +21,7 @@ interface AppComponent:AndroidInjector<App>{
     interface Builder {
 
         @BindsInstance
-        fun application(application: Application): AppComponent.Builder
+        fun application(application: Application): Builder
 
         fun build(): AppComponent
     }

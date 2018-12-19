@@ -1,4 +1,4 @@
-package com.stingerzou.mygithub.di
+package com.stingerzou.mygithub.app.di
 
 import java.lang.annotation.Documented
 import java.lang.annotation.Retention

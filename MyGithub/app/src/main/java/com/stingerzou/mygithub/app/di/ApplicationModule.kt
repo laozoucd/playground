@@ -1,4 +1,4 @@
-package com.stingerzou.mygithub.di
+package com.stingerzou.mygithub.app.di
 
 import android.app.Application
 import android.content.Context

@@ -1,8 +1,9 @@
-package com.stingerzou.mygithub
+package com.stingerzou.mygithub.app
 
 import android.app.Application
 import com.stingerzou.common.Preference
-import com.stingerzou.mygithub.di.DaggerAppComponent
+import com.stingerzou.mygithub.app.di.DaggerAppComponent
+
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 

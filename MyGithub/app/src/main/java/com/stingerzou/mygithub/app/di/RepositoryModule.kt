@@ -1,9 +1,10 @@
-package com.stingerzou.mygithub.di
+package com.stingerzou.mygithub.app.di
 
 
 import com.stingerzou.common.ensureDir
-import com.stingerzou.mygithub.AppContext
-import com.stingerzou.mygithub.net.UserApi
+import com.stingerzou.mygithub.app.AppContext
+import com.stingerzou.mygithub.app.AuthInterceptor
+import com.stingerzou.mygithub.user.UserApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
@@ -14,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import javax.inject.Singleton
 
-//暂时放在一起，后面多了通过 include 来分开
+
 @Module
  class RepositoryModule {
 
@@ -33,13 +34,14 @@ import javax.inject.Singleton
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(OkHttpClient.Builder()
                         .cache(Cache(cacheFile, 1024 * 1024 * 1024))
+                        .addInterceptor(AuthInterceptor())
                         .build())
                 .baseUrl(BASE_URL)
                 .build()
     }
 
     @Provides
-    fun provideUserApi(retrofit:Retrofit):UserApi {
+    fun provideUserApi(retrofit:Retrofit): UserApi {
         return retrofit.create(UserApi::class.java)
     }
 

@@ -1,6 +1,5 @@
-package com.stingerzou.mygithub.net
+package com.stingerzou.mygithub.user
 
-import com.stingerzou.mygithub.auth.User
 import io.reactivex.Observable
 import retrofit2.http.GET
 

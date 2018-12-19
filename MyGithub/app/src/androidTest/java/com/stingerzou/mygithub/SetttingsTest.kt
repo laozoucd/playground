@@ -1,6 +1,7 @@
 package com.stingerzou.mygithub
 
 import android.support.test.runner.AndroidJUnit4
+import com.stingerzou.mygithub.app.AppConfig
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith

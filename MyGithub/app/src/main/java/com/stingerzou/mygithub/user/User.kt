@@ -1,4 +1,4 @@
-package com.stingerzou.mygithub.auth
+package com.stingerzou.mygithub.user
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

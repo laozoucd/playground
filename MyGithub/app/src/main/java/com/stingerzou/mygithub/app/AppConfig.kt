@@ -1,4 +1,4 @@
-package com.stingerzou.mygithub
+package com.stingerzou.mygithub.app
 
 
 object AppConfig {
