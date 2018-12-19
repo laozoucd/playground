@@ -40,9 +40,4 @@ import javax.inject.Singleton
                 .build()
     }
 
-    @Provides
-    fun provideUserApi(retrofit:Retrofit): UserApi {
-        return retrofit.create(UserApi::class.java)
-    }
-
 }
