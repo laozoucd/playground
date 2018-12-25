@@ -40,9 +40,14 @@ class MainActivity : DaggerAppCompatActivity() {
             mAuthApi.createAuthorization(AuthorizationReq())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe {
-                        Log.d("zzh", it.token)
+
+                    .subscribe({
+                        Log.d("zzh",it.token)
+                    },
+                    {
+                        it.printStackTrace()
                     }
+                    )
         }
 
     }
