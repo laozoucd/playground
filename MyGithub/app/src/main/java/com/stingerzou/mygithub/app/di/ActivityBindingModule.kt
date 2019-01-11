@@ -8,6 +8,7 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class ActivityBindingModule {
 
+    //登录页面
     @ActivityScoped
     @ContributesAndroidInjector(modules = arrayOf(MainActivityModule::class))
     abstract fun mainActivity(): MainActivity

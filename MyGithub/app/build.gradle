@@ -51,7 +51,7 @@ dependencies {
     implementation project(':common')
 
     //与 gradle 插件版本匹配
-    kapt 'com.android.databinding:compiler:3.1.4'
+    annotationProcessor 'com.android.databinding:compiler:3.1.4'
 
     api 'com.squareup.okhttp3:logging-interceptor:3.8.0'
     api 'com.squareup.okhttp3:okhttp:3.8.0'
