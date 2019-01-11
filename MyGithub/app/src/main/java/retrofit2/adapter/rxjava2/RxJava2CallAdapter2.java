@@ -97,7 +97,7 @@ final class RxJava2CallAdapter2<R> implements CallAdapter<R, Object> {
             return observable.ignoreElements();
         }
 
-        return RxJavaPlugins.onAssembly(observable).compose(new ObservableTransformer<Object, Object>() {
+        observable = observable.compose(new ObservableTransformer<Object, Object>() {
             @Override
             public ObservableSource<Object> apply(Observable<Object> upstream) {
                 return upstream.doOnError(new Consumer<Throwable>() {
@@ -108,6 +108,8 @@ final class RxJava2CallAdapter2<R> implements CallAdapter<R, Object> {
                 });
             }
         });
+
+        return RxJavaPlugins.onAssembly(observable);
 
     }
 }
